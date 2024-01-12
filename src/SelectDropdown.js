@@ -152,7 +152,7 @@ const SelectDropdown = (
         <TouchableOpacity
           disabled={disabledIndexs?.includes(index)}
           activeOpacity={0.8}
-          style={mergeStyles(styles.dropdownRow, rowStyle, isSelected && selectedRowStyle)}
+          style={mergeStyles(styles.dropdownRow, rowStyle, isSelected && selectedRowStyle, {borderRadius: 10})}
           onPress={() => onSelectItem(item, index)}>
           {renderCustomizedRowChild ? (
             <View style={styles.dropdownCustomizedRowParent}>{renderCustomizedRowChild(item, index, isSelected)}</View>
