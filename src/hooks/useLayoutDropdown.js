@@ -46,7 +46,8 @@ export const useLayoutDropdown = (data, dropdownStyle, rowStyle, search) => {
     return {
       ...{
         borderTopWidth: 0,
-        overflow: 'hidden',
+        backgroundColor: "white",
+        //overflow: 'hidden',
       },
       ...dropdownStyle,
       ...{
