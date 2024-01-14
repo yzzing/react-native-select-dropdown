@@ -147,12 +147,20 @@ const SelectDropdown = (
   const renderFlatlistItem = ({item, index}) => {
     const selectedItemIndex = findIndexInArr(selectedItem, dataArr);
     const isSelected = index == selectedItemIndex;
+    //마지막 아이템인지 확인
+    const isLastItem = index == dataArr.length - 1
     return (
       isExist(item) && (
         <TouchableOpacity
           disabled={disabledIndexs?.includes(index)}
           activeOpacity={0.8}
-          style={mergeStyles(styles.dropdownRow, rowStyle, isSelected && selectedRowStyle, {borderRadius: 10})}
+          style={
+            mergeStyles(styles.dropdownRow, 
+            rowStyle, 
+            isSelected && selectedRowStyle, 
+            {borderRadius: 10},
+            isLastItem && {borderBottomWidth: 0}) //마지막 아이템에는 borderBottomWidth 안함
+          }
           onPress={() => onSelectItem(item, index)}>
           {renderCustomizedRowChild ? (
             <View style={styles.dropdownCustomizedRowParent}>{renderCustomizedRowChild(item, index, isSelected)}</View>
